@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>만두 클릭 애니메이션</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    width: 150px; /* 여기서 크기 조절 */
+    height: auto;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+</style>
+</head>
+<body>
+  <img id="dumpling" src="https://raw.githubusercontent.com/youbinalice1/mandu-cursor/main/salmon1.PNG" alt="만두">
+
+<script>
+  const dumpling = document.getElementById("dumpling");
+  let frame = 1;
+  let direction = 1;
+
+  dumpling.addEventListener("click", () => {
+    frame += direction;
+
+    if (frame >= 3) direction = -1;
+    else if (frame <= 1) direction = 1;
+
+    dumpling.src = `https://raw.githubusercontent.com/youbinalice1/mandu-cursor/main/salmon${frame}.PNG?ver=${Date.now()}`;
+  });
+</script>
+</body>
+</html>
